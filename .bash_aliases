@@ -18,7 +18,7 @@ else
 fi
 
 ## Command short cuts to save time
-# handy short cuts 
+# handy short cuts
 alias g=git
 alias c=clear
 alias h='history'
@@ -28,7 +28,7 @@ alias j='jobs -l'
 # Use a long listing format ##
 alias ll='ls -la'
 # Show hidden files ##
-alias l.='ls -d .*'
+alias l.='ls -a'
 
 ## Control cd command behavior
 # get rid of command not found ##
@@ -87,6 +87,11 @@ alias chgrp='chgrp --preserve-root'
 # install with apt-get
 alias apt-get="sudo apt-get"
 alias updatey="sudo apt-get --yes"
-# update on one command 
+# update on one command
 alias update='sudo apt-get update && sudo apt-get upgrade'
 
+## Work with demons
+# Nginx
+alias nginx-restart='sudo service nginx restart'
+# php5-fpm
+alias php-restart='sudo service php5-fpm restart'
