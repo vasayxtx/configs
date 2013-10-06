@@ -95,3 +95,8 @@ alias update='sudo apt-get update && sudo apt-get upgrade'
 alias nginx-restart='sudo service nginx restart'
 # php5-fpm
 alias php-restart='sudo service php5-fpm restart'
+
+## i3 tile manager
+alias lockscreen="i3lock -c 000000"
+alias logout="i3-msg exit"
+
