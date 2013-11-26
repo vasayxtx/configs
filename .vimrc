@@ -19,8 +19,8 @@ set termencoding=utf-8
 set colorcolumn=81
 
 set et
-set nowrap
-set ai
+set ai " Auto-identing"
+set wrap " Wrap lines visualy"
 set cin
 
 set showmatch
@@ -60,6 +60,12 @@ noremap <C-o> <C-w><C-o>
 " Close current window
 noremap <C-c> <C-w><C-c>
 
+" Hardcore mode"
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+
 " --------- Bundles ---------
 
 filetype off                   " required!
@@ -88,4 +94,8 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'tpope/vim-fugitive'
 
 filetype plugin indent on
+
+" Project manager"
+Bundle 'scrooloose/nerdtree'
+autocmd vimenter * if !argc() | NERDTree | endif
 
