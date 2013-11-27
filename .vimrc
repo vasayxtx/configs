@@ -66,6 +66,9 @@ nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 
+" Recognize .md as markdown"
+au BufRead,BufNewFile *.md set filetype=markdown
+
 " --------- Bundles ---------
 
 filetype off                   " required!
@@ -76,13 +79,13 @@ Bundle 'gmarik/vundle'
 
 Bundle 'altercation/vim-colors-solarized'
 
-set background=light
+set background=dark
 se t_Co=16
 let g:solarized_termcolors=256
 colorscheme solarized
 
 Bundle 'kien/ctrlp.vim'
-let g:ctrlp_clear_cache_on_exit = 0
+" let g:ctrlp_clear_cache_on_exit = 0
 
 " Comment lines fast!
 Bundle 'tpope/vim-commentary'
@@ -97,5 +100,7 @@ filetype plugin indent on
 
 " Project manager"
 Bundle 'scrooloose/nerdtree'
-autocmd vimenter * if !argc() | NERDTree | endif
+map <C-n> :NERDTreeToggle<CR>
+
+Bundle 'plasticboy/vim-markdown'
 
