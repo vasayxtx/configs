@@ -69,6 +69,10 @@ nnoremap <right> <nop>
 " Recognize .md as markdown"
 au BufRead,BufNewFile *.md set filetype=markdown
 
+" Support vim commands for russian symbols
+set keymap=russian-jcukenwin
+set iminsert=0
+
 function! InsertTabWrapper(direction)
     let col = col('.') - 1
     if !col || getline('.')[col - 1] !~ '\k'
