@@ -7,6 +7,8 @@ plugins=(git osx brew vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
+bindkey "^R" history-incremental-search-backward
+
 # User configuration
 
 if [ -f ~/.sh_autostart ]; then
