@@ -1,21 +1,19 @@
 [user]
-	name = Vasiliy Tsybenko
-	email = vasayxtx@gmail.com
+    name = Vasiliy Tsybenko
+    email = vasayxtx@gmail.com
 [color]
-	ui = true
-[core]
-	editor = vim
+    ui = true
 [alias]
     h = help
-	ch = checkout       # Checkout to existing branch
-	chb = checkout -b   # Create new branch and checkout to it
-	b = branch          # Show all branches
-	hist = log --pretty=format:'%Cred%h%Creset %ad | %Cgreen%s%d%Creset [%an]' --graph --date=local 
-	st = status -sb
-	f = fetch
-	c = commit
-	ca = commit --amend
-	a = add
-	ph = push
-	pl = pull
-	s = show
+    ch = checkout       # Checkout to existing branch
+    chb = checkout -b   # Create new branch and checkout to it
+    b = branch          # Show all branches
+    hist = log --pretty=format:'%Cred%h%Creset %ad | %Cgreen%s%d%Creset [%an]' --graph --date=local
+    st = status -sb
+    f = fetch
+    c = commit
+    ca = commit --amend
+    a = add
+    ph = push
+    pl = pull
+    s = show
