@@ -6,15 +6,12 @@
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls -F --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
+    alias ls='ls -FG --color=auto'
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 else
-    alias ls='ls -F'
+    alias ls='ls -FG'
 fi
 
 ## Command short cuts to save time
@@ -31,9 +28,6 @@ alias ll='ls -la'
 alias l.='ls -a'
 
 ## Control cd command behavior
-# get rid of command not found ##
-alias cd..='cd ..'
-# a quick way to get out of current directory ##
 alias ..='cd ..'
 alias .1='cd ..'
 alias .2='cd ../../'
@@ -41,7 +35,7 @@ alias .3='cd ../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 
-## start calculator with math support
+## Start calculator with math support
 alias bc='bc -l'
 
 ## Create a new set of commands
@@ -50,11 +44,10 @@ alias now='date +"%T'
 alias nowtime=now
 alias nowdate='date +"%d-%m-%Y"'
 
-## Set vim as default
+## vi as vim, also define aliases for editing
 alias vi=vim
-alias svi='sudo vi'
-alias vis='vim "+set si"'
-alias edit='vim'
+alias e='$EDITOR'
+alias se='sudo $EDITOR'
 
 ## Control output of networking tool called ping
 # Stop after sending count ECHO_REQUEST packets #
@@ -72,16 +65,10 @@ alias header='curl -I'
 alias headerc='curl -I --compress'
 
 ## Add safety nets
-# do not delete / or prompt if deleting more than 3 files at a time #
-alias rm='rm -I --preserve-root'
-# confirmation #
+alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
 alias ln='ln -i'
-# Parenting changing perms on / #
-alias chown='chown --preserve-root'
-alias chmod='chmod --preserve-root'
-alias chgrp='chgrp --preserve-root'
 
 ## Update Debian Linux server
 # install with apt-get
