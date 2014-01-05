@@ -51,15 +51,6 @@ noremap <C-k> <C-w><C-k>
 noremap <C-h> <C-w><C-h>
 noremap <C-l> <C-w><C-l>
 
-" Swap top/bottom or left/right split
-noremap <C-r> <C-w><C-r>
-
-" Close every window in the current tabview but the current one
-noremap <C-o> <C-w><C-o>
-
-" Close current window
-noremap <C-c> <C-w><C-c>
-
 " Hardcore mode"
 nnoremap <up> <nop>
 nnoremap <down> <nop>
