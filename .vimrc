@@ -115,3 +115,6 @@ map <C-n> :NERDTreeToggle<CR>
 
 Bundle 'plasticboy/vim-markdown'
 
+Bundle 'scrooloose/syntastic.git'
+
+
