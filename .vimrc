@@ -117,4 +117,5 @@ Bundle 'plasticboy/vim-markdown'
 
 Bundle 'scrooloose/syntastic.git'
 
+Bundle 'tpope/vim-surround'
 
