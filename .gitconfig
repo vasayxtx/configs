@@ -3,6 +3,8 @@
     email = vasayxtx@gmail.com
 [color]
     ui = true
+[push]
+    default = simple
 [alias]
     h = help
     ch = checkout       # Checkout to existing branch
