@@ -27,7 +27,8 @@ setopt correctall
 
 # Env variables
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$PATH:/usr/sbin:/sbin
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export EDITOR="vim"     # Vim as default editor
 
 export PROMPT='╭─%{$fg_bold[green]%}%n@%m%  %{$fg_bold[blue]%}%~%{$reset_color%} $(git_prompt_info)%{$reset_color%}
