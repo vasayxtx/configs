@@ -16,6 +16,11 @@ set tabstop=4       " Number of space characters that will
 set shiftwidth=4    " Number of space characters inserted for indentation
 set smarttab
 
+" Considering with https://github.com/airbnb/javascript#whitespace
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+
 " Default text encoding
 set termencoding=utf-8
 " Highlight column number
