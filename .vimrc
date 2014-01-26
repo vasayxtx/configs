@@ -6,7 +6,6 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
-syntax enable
 
 " Converting tabs to spaces
 " http://vim.wikia.com/wiki/Converting_tabs_to_spaces
@@ -20,6 +19,14 @@ set smarttab
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
+
+autocmd BufNewFile,BufRead *.jade set filetype=jade
+autocmd Filetype jade setlocal ts=2 sts=2 sw=2
+
+autocmd BufNewFile,BufRead *.less set filetype=less
+autocmd Filetype less setlocal ts=2 sts=2 sw=2
+
+syntax enable
 
 " Default text encoding
 set termencoding=utf-8
@@ -127,3 +134,6 @@ Bundle 'scrooloose/syntastic.git'
 
 Bundle 'tpope/vim-surround'
 
+Bundle 'digitaltoad/vim-jade'
+
+Bundle 'groenewege/vim-less'
