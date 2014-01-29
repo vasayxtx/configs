@@ -137,3 +137,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'digitaltoad/vim-jade'
 
 Bundle 'groenewege/vim-less'
+
+Bundle 'majutsushi/tagbar'
+nnoremap <silent> <F9> :TagbarToggle<CR>
+
