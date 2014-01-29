@@ -141,3 +141,5 @@ Bundle 'groenewege/vim-less'
 Bundle 'majutsushi/tagbar'
 nnoremap <silent> <F9> :TagbarToggle<CR>
 
+Bundle 'shawncplus/phpcomplete.vim'
+
