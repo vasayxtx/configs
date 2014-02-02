@@ -95,6 +95,8 @@ inoremap <s-tab> <c-r>=InsertTabWrapper ("backward")<cr>
 inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
 inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 
+set tags=./tags;/
+
 " --------- Bundles ---------
 
 filetype off                   " required!
@@ -140,6 +142,7 @@ Bundle 'groenewege/vim-less'
 
 Bundle 'majutsushi/tagbar'
 nnoremap <silent> <F9> :TagbarToggle<CR>
+nnoremap <silent> <C-F9> :TagbarOpen j<CR>
 
 Bundle 'shawncplus/phpcomplete.vim'
 
