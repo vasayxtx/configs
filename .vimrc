@@ -163,3 +163,5 @@ nnoremap <C-c> :call PhpDoc()<CR>
 Bundle 'junegunn/vim-easy-align'
 vmap <C-a> <Plug>(EasyAlign)
 
+Bundle "mattn/emmet-vim"
+
