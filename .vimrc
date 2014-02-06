@@ -155,3 +155,6 @@ nnoremap <silent> <C-F9> :TagbarOpen j<CR>
 
 Bundle 'shawncplus/phpcomplete.vim'
 
+Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
+nnoremap <C-c> :call PhpDoc()<CR>
+
