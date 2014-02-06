@@ -97,6 +97,13 @@ inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 
 set tags=./tags;/
 
+if has("gui_running") && has("gui_gtk2")
+    set guioptions-=m  " remove menu bar
+    set guioptions-=T  " remove toolbar
+    set guioptions-=r  " remove right-hand scroll bar
+    set guioptions-=L  " remove left-hand scroll bar
+endif
+
 " --------- Bundles ---------
 
 filetype off                   " required!
