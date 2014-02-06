@@ -158,3 +158,6 @@ Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
 nnoremap <C-c> :call PhpDoc()<CR>
 
+Bundle 'junegunn/vim-easy-align'
+vmap <C-a> <Plug>(EasyAlign)
+
