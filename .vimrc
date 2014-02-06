@@ -120,7 +120,9 @@ let g:solarized_termcolors=256
 colorscheme solarized
 
 Bundle 'kien/ctrlp.vim'
-" let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_follow_symlinks = 2
+let g:ctrlp_working_path_mode = 'rw'
+let g:ctrlp_show_hidden = 1
 
 " Comment lines fast!
 Bundle 'tpope/vim-commentary'
