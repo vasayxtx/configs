@@ -78,6 +78,8 @@ au BufRead,BufNewFile *.md set filetype=markdown
 " Support vim commands for russian symbols
 set keymap=russian-jcukenwin
 set iminsert=0
+set imsearch=0
+highlight lCursor guifg=NONE guibg=Cyan
 
 function! InsertTabWrapper(direction)
     let col = col('.') - 1
