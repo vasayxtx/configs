@@ -106,6 +106,37 @@ if has("gui_running") && has("gui_gtk2")
     set guioptions-=L  " remove left-hand scroll bar
 endif
 
+" --------- Copy/Paste and select operations ---------
+
+" CTRL-X and SHIFT-Del are Cut
+noremap <C-X>   "+x
+noremap <S-Del> "+x
+
+" CTRL-C and CTRL-Insert are Copy
+noremap <C-C>      "+y
+noremap <C-Insert> "+y
+
+" CTRL-V and SHIFT-Insert are Paste
+noremap <C-V>           "+gP
+noremap <S-Insert>      "+gP
+
+" Pasting blockwise and linewise selections is not possible in Insert and
+" Visual mode without the +virtualedit feature.  They are pasted as if they
+" were characterwise instead.
+" Uses the paste.vim autoload script.
+
+exe 'inoremap <script> <C-V>' paste#paste_cmd['i']
+exe 'vnoremap <script> <C-V>' paste#paste_cmd['v']
+
+imap <S-Insert>     <C-V>
+vmap <S-Insert>     <C-V>
+
+" Use CTRL-Q to do what CTRL-V used to do
+noremap <C-Q>       <C-V>
+
+" CTRL-a - select all
+nmap <C-a> ggVG
+
 " --------- Bundles ---------
 
 filetype off                   " required!
@@ -158,10 +189,10 @@ nnoremap <silent> <C-F9> :TagbarOpen j<CR>
 Bundle 'shawncplus/phpcomplete.vim'
 
 Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
-nnoremap <C-c> :call PhpDoc()<CR>
+nnoremap <C-z><C-c> :call PhpDoc()<CR>
 
 Bundle 'junegunn/vim-easy-align'
-vmap <C-a> <Plug>(EasyAlign)
+vmap <C-z><C-a> <Plug>(EasyAlign)
 
 Bundle "mattn/emmet-vim"
 
