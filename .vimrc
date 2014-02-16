@@ -171,6 +171,7 @@ filetype plugin indent on
 " Project manager"
 Bundle 'scrooloose/nerdtree'
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 Bundle 'plasticboy/vim-markdown'
 
