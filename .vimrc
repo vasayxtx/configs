@@ -81,19 +81,7 @@ set iminsert=0
 set imsearch=0
 highlight lCursor guifg=NONE guibg=Cyan
 
-function! InsertTabWrapper(direction)
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    elseif "backward" == a:direction
-        return "\<c-p>"
-    else
-        return "\<c-n>"
-    endif
-endfunction
-inoremap <tab> <c-r>=InsertTabWrapper ("forward")<cr>
-inoremap <s-tab> <c-r>=InsertTabWrapper ("backward")<cr>
-
+" Use jk to navigate in autocompletion
 inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
 inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 
@@ -101,6 +89,7 @@ set tags=./tags;/
 " Open the definition in a vertical split
 map <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
+" For gvim
 if has("gui_running") && has("gui_gtk2")
     set guioptions-=m  " remove menu bar
     set guioptions-=T  " remove toolbar
@@ -214,4 +203,16 @@ vmap <C-z><C-a> <Plug>(EasyAlign)
 Bundle "mattn/emmet-vim"
 
 Bundle "mileszs/ack.vim"
+
+Bundle "xolox/vim-misc"
+Bundle "xolox/vim-easytags"
+:let g:easytags_dynamic_files = 1
+let g:easytags_auto_update = 0
+let g:easytags_auto_highlight = 0
+
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "garbas/vim-snipmate"
+
+Bundle "honza/vim-snippets"
 
