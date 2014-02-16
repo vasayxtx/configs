@@ -181,6 +181,7 @@ let NERDTreeShowHidden=1
 Bundle 'plasticboy/vim-markdown'
 
 Bundle 'scrooloose/syntastic.git'
+let g:syntastic_php_checkers=['php', 'phpmd']
 
 Bundle 'tpope/vim-surround'
 
