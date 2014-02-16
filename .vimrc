@@ -98,6 +98,8 @@ inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
 inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 
 set tags=./tags;/
+" Open the definition in a vertical split
+map <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 if has("gui_running") && has("gui_gtk2")
     set guioptions-=m  " remove menu bar
@@ -210,4 +212,6 @@ Bundle 'junegunn/vim-easy-align'
 vmap <C-z><C-a> <Plug>(EasyAlign)
 
 Bundle "mattn/emmet-vim"
+
+Bundle "mileszs/ack.vim"
 
