@@ -3,7 +3,7 @@ ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="robbyrussell"
 
-plugins=(git osx brew vi-mode laravel ssh-agent extract)
+plugins=(git osx brew vi-mode laravel ssh-agent extract composer)
 
 source $ZSH/oh-my-zsh.sh
 
