@@ -106,6 +106,9 @@ if has("gui_running") && has("gui_gtk2")
     set guioptions-=L  " remove left-hand scroll bar
 endif
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! %!sudo tee > /dev/null %
+
 " --------- Copy/Paste and select operations ---------
 
 " CTRL-X and SHIFT-Del are Cut
