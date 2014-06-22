@@ -31,7 +31,11 @@ syntax enable
 " Default text encoding
 set termencoding=utf-8
 " Highlight column number
-set colorcolumn=81
+if exists('+colorcolumn')
+  set colorcolumn=81
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>81v.\+', -1)
+endif
 
 set et
 set ai " Auto-identing"
