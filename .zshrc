@@ -3,7 +3,7 @@ ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="robbyrussell"
 
-plugins=(git osx brew vi-mode laravel ssh-agent extract composer vagrant)
+plugins=(git osx brew vi-mode laravel ssh-agent extract composer vagrant pip docker docker-compose tmux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -29,13 +29,13 @@ setopt correctall
 
 export PATH=$PATH:/usr/sbin:/sbin
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
-export PATH=$HOME/.composer/vendor/bin:$PATH
 export EDITOR="vim"     # Vim as default editor
 
 export PROMPT='╭─%{$fg_bold[green]%}%n@%m%  %{$fg_bold[blue]%}%~%{$reset_color%} $(git_prompt_info)%{$reset_color%}
 ╰─%B$%b '
 export RPROMPT='%(?..%{$fg_bold[red]%}[%?])%{$reset_color%}'
 
+export GOPATH=$HOME/go
 
 # Aliases
 
@@ -79,21 +79,6 @@ alias nowdate='date +"%d-%m-%Y"'
 ## vi as vim
 alias vi=vim
 
-## Control output of networking tool called ping
-# Stop after sending count ECHO_REQUEST packets #
-alias ping='ping -c 5'
-# Do not wait interval 1 second, go fast #
-alias fastping='ping -c 100 -s.2'
-
-## Show open ports
-alias ports='netstat -tulanp'
-
-## Debug web server / cdn problems with curl
-# get web server headers
-alias header='curl -I'
-# find out if remote server supports gzip / mod_deflate or not #
-alias headerc='curl -I --compress'
-
 ## Add safety nets
 alias rm='nocorrect rm -i'
 alias rmf='nocorrect rm -f'     # Force deleting
@@ -103,44 +88,14 @@ alias cp='nocorrect cp -iR'
 alias mkdir='nocorrect mkdir'
 alias ln='ln -i'
 
-# Continue getting a partially-downloaded file
-alias wget='wget -c'
-
 # Getting size in human-readable format
 alias du='du -h'
 alias df='df -h'
 
-## Update Debian Linux server
-# install with apt-get
-alias apt-get="sudo apt-get"
-alias updatey="sudo apt-get --yes"
-# update on one command
-alias update='sudo apt-get update && sudo apt-get upgrade'
+# Autocomplete for hosts specified in the ~/.ssh/config
+zstyle -s ':completion:*:hosts' hosts _ssh_config
+[[ -r ~/.ssh/config ]] && _ssh_config+=($(cat ~/.ssh/config | sed -ne 's/Host[=\t ]//p'))
+zstyle ':completion:*:hosts' hosts $_ssh_config
 
-## Work with demons
-# Nginx
-alias nginx-restart='sudo service nginx restart'
-# php5-fpm
-alias php-restart='sudo service php5-fpm restart'
-
-## i3 tile manager
-alias lockscreen="i3lock -c 000000"
-alias logout="i3-msg exit"
-
-## Laravel
-alias art="php artisan"
-
-
-# Global aliases
-
-alias -g L='| less'
-alias -g H='| head'
-alias -g T='| tail'
-
-
-# Other
-
-if [ -f ~/.sh_autostart ]; then
-    . ~/.sh_autostart
-fi
+alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 
