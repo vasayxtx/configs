@@ -31,11 +31,6 @@ syntax enable
 " Default text encoding
 set termencoding=utf-8
 " Highlight column number
-if exists('+colorcolumn')
-  set colorcolumn=81
-else
-  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>81v.\+', -1)
-endif
 
 set et
 set ai " Auto-identing"
@@ -134,90 +129,4 @@ noremap <C-Q>       <C-V>
 
 " CTRL-a - select all
 nmap <C-a> ggVG
-
-" --------- Bundles ---------
-
-filetype off                   " required!
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-Bundle 'gmarik/vundle'
-
-Bundle 'altercation/vim-colors-solarized'
-
-set background=dark
-se t_Co=16
-let g:solarized_termcolors=256
-colorscheme solarized
-
-Bundle 'kien/ctrlp.vim'
-let g:ctrlp_follow_symlinks = 2
-let g:ctrlp_working_path_mode = 'rw'
-let g:ctrlp_show_hidden = 1
-
-" Comment lines fast!
-Bundle 'tpope/vim-commentary'
-
-" Autoclose quotes, brackets, etc
-Bundle 'Raimondi/delimitMate'
-
-" Git wrapper
-Bundle 'tpope/vim-fugitive'
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gc :Gcommit<CR>
-nnoremap <Leader>gl :Glog<CR>
-nnoremap <Leader>gb :Gblame<CR>
-nnoremap <Leader>gm :Gmove
-nnoremap <Leader>gp :Ggrep
-nnoremap <Leader>gr :Gread<CR>
-nnoremap <Leader>gw :Gwrite<CR>
-nnoremap <Leader>gg :Git
-nnoremap <Leader>gd :Gdiff<CR>
-nnoremap <Leader>do :diffoff<CR>
-
-filetype plugin indent on
-
-" Project manager"
-Bundle 'scrooloose/nerdtree'
-map <C-n> :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
-
-Bundle 'plasticboy/vim-markdown'
-
-Bundle 'scrooloose/syntastic.git'
-let g:syntastic_php_checkers=['php', 'phpmd']
-
-Bundle 'tpope/vim-surround'
-
-Bundle 'digitaltoad/vim-jade'
-
-Bundle 'groenewege/vim-less'
-
-Bundle 'majutsushi/tagbar'
-nnoremap <silent> <F9> :TagbarToggle<CR>
-nnoremap <silent> <C-F9> :TagbarOpen j<CR>
-
-Bundle 'shawncplus/phpcomplete.vim'
-
-Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
-nnoremap <C-z><C-c> :call PhpDoc()<CR>
-
-Bundle 'junegunn/vim-easy-align'
-vmap <C-z><C-a> <Plug>(EasyAlign)
-
-Bundle "mattn/emmet-vim"
-
-Bundle "mileszs/ack.vim"
-
-Bundle "xolox/vim-misc"
-Bundle "xolox/vim-easytags"
-:let g:easytags_dynamic_files = 1
-let g:easytags_auto_update = 0
-let g:easytags_auto_highlight = 0
-
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
-
-Bundle "honza/vim-snippets"
 
