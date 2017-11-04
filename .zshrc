@@ -1,10 +1,14 @@
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+
+[[ -f ~/.zsh_params ]] && source ~/.zsh_params
+[[ -z "$PROMPT_HEADER_COLOR" ]] && PROMPT_HEADER_COLOR="green"
+[[ -z "$PROMPT_PATH_PREFIX" ]] && PROMPT_PATH_PREFIX=""
+[[ -z "$PROMPT_PATH_COLOR" ]] && PROMPT_PATH_COLOR="blue"
 
 ZSH_THEME="robbyrussell"
 
 plugins=(git osx brew vi-mode laravel ssh-agent extract composer vagrant pip docker docker-compose tmux)
-
+ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 
@@ -31,8 +35,8 @@ export PATH=$PATH:/usr/sbin:/sbin
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export EDITOR="vim"     # Vim as default editor
 
-export PROMPT='╭─%{$fg_bold[green]%}%n@%m%  %{$fg_bold[blue]%}%~%{$reset_color%} $(git_prompt_info)%{$reset_color%}
-╰─%B$%b '
+export PROMPT="╭─%{$fg_bold[${PROMPT_HEADER_COLOR}]%}%n@%m%  %{$fg_bold[${PROMPT_PATH_COLOR}]%}${PROMPT_PATH_PREFIX}%~%{$reset_color%} $(git_prompt_info)%{$reset_color%}
+╰─%B$%b "
 export RPROMPT='%(?..%{$fg_bold[red]%}[%?])%{$reset_color%}'
 
 export GOPATH=$HOME/go
