@@ -33,6 +33,7 @@ setopt correctall
 
 export PATH=$PATH:/usr/sbin:/sbin
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=$HOME/go/bin:$PATH
 export EDITOR="vim"     # Vim as default editor
 
 export PROMPT="╭─%{$fg_bold[${PROMPT_HEADER_COLOR}]%}%n@%m%  %{$fg_bold[${PROMPT_PATH_COLOR}]%}${PROMPT_PATH_PREFIX}%~%{$reset_color%} \$(git_prompt_info)%{$reset_color%}
