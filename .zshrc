@@ -7,7 +7,7 @@
 
 ZSH_THEME="robbyrussell"
 
-plugins=(git osx brew vi-mode laravel ssh-agent extract composer vagrant pip docker docker-compose tmux)
+plugins=(git osx brew vi-mode laravel ssh-agent extract composer vagrant pip docker docker-compose tmux golang)
 ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
