@@ -15,6 +15,7 @@ plugins=(
     extract
     git
     golang
+    kubectl
     osx
     pip
     ssh-agent
