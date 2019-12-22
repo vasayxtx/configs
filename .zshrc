@@ -15,7 +15,9 @@ plugins=(
     extract
     git
     golang
+    helm
     kubectl
+    minikube
     osx
     pip
     ssh-agent
