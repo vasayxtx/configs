@@ -18,15 +18,18 @@ plugins=(
     helm
     kubectl
     minikube
-    osx
+    macos
     pip
     ssh-agent
     tmux
-    vi-mode
     z
 )
 ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+
+
+# Enable vi mode
+bindkey -v
 
 
 # History
@@ -48,12 +51,9 @@ setopt correctall
 
 # Env variables
 
-export GOPATH=$HOME/go
-export PATH=$PATH:/usr/sbin:/sbin
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
-export PATH=$GOPATH/bin:$PATH
-SCRIPTS_DIR="$(cd "$(dirname $(readlink $HOME/.zshrc))/scripts">/dev/null 2>&1 && pwd)"
-export PATH=$SCRIPTS_DIR:$PATH
+export PATH=$HOME/dev/bin:$HOME/go/bin:$HOME/bin:/opt/homebrew/bin:$PATH
+PYTHON_BIN_DIR="$(python3 -m site --user-base)/bin"
+export PATH=$PYTHON_BIN_DIR:$PATH
 
 export EDITOR="vim"
 
@@ -82,8 +82,7 @@ alias h='history'
 alias j='jobs -l'
 
 ## Control ls command output
-alias ll='ls -lah'              # Use a long listing format
-alias l.='ls -A'                # Show hidden files (excluding '.' and '..')
+alias ll="eza -lah"
 
 ## Control cd command behavior
 alias ..='cd ..'
@@ -117,6 +116,10 @@ alias ln='ln -i'
 alias du='du -h'
 alias df='df -h'
 
+# Use bat instead of cat
+alias cat='bat --paging=never'
+alias less='bat'
+
 # Autocomplete for hosts specified in the ~/.ssh/config
 zstyle -s ':completion:*:hosts' hosts _ssh_config
 [[ -r ~/.ssh/config ]] && _ssh_config+=($(cat ~/.ssh/config | sed -ne 's/Host[=\t ]//p'))
@@ -124,3 +127,7 @@ zstyle ':completion:*:hosts' hosts $_ssh_config
 
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 
+#disable auto correct
+unsetopt correct_all
+
+[[ -s "/Users/vasily/.gvm/scripts/gvm" ]] && source "/Users/vasily/.gvm/scripts/gvm"
