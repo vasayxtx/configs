@@ -1,10 +1,13 @@
 [user]
-    name = Vasiliy Tsybenko
+    name = Vasily Tsybenko
     email = vasayxtx@gmail.com
+
 [color]
     ui = true
+
 [push]
     default = simple
+
 [alias]
     h = help
     ch = checkout       # Checkout to existing branch
@@ -19,3 +22,28 @@
     ph = push
     pl = pull
     s = show
+
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only --features=interactive
+
+[delta]
+    features = decorations
+    line-numbers = true
+
+[delta "interactive"]
+    keep-plus-minus-markers = false
+
+[delta "decorations"]
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax
+
+[init]
+    defaultBranch = master
