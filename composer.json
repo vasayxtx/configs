@@ -1,8 +1,0 @@
-{
-    "require": {
-        "phpmd/phpmd": "*",
-        "phploc/phploc": "*",
-        "sebastian/phpcpd": "*",
-        "d11wtq/boris": "*"
-    }
-}
