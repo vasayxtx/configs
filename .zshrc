@@ -28,17 +28,26 @@ bindkey -v
 # History
 
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=5000
+SAVEHIST=5000
 
+setopt share_history
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+
+# Up/Down arrow: search history with current input
 bindkey "^[[A" up-line-or-search
 bindkey "^[[B" down-line-or-search
 
+# Ctrl+R: incremental search backward
 bindkey "^R" history-incremental-search-backward
 
 # Env variables
 
 export PATH=$HOME/dev/bin:$HOME/go/bin:$HOME/bin:/opt/homebrew/bin:$PATH
+
+# Deduplicate $PATH entries
+export PATH=$(echo "$PATH" | awk -v RS=: -v ORS=: '!a[$1]++' | sed 's/:$//')k
 
 export EDITOR="vim"
 
@@ -64,7 +73,9 @@ alias c=clear
 alias h='history'
 
 ## Control ls command output
-alias ll="eza -lah"
+alias l="eza -1"       # List one entry per line
+alias ll="eza -lah"    # List all files with human-readable sizes
+alias lt="eza --tree"  # Tree view
 
 ## Control cd command behavior
 alias ..='cd ..'
@@ -98,12 +109,14 @@ alias cat='bat --paging=never'
 alias less='bat'
 
 # Autocomplete for hosts specified in the ~/.ssh/config
-zstyle -s ':completion:*:hosts' hosts _ssh_config
-[[ -r ~/.ssh/config ]] && _ssh_config+=($(cat ~/.ssh/config | sed -ne 's/Host[=\t ]//p'))
-zstyle ':completion:*:hosts' hosts $_ssh_config
+[[ -r ~/.ssh/config ]] && zstyle ':completion:*:hosts' hosts $(grep '^Host ' ~/.ssh/config | awk '{print $2}')
 
 # gvm
-[[ -s "/Users/vasily/.gvm/scripts/gvm" ]] && source "/Users/vasily/.gvm/scripts/gvm"
+if [[ -s "~/.gvm/scripts/gvm" ]]; then
+    source "~/.gvm/scripts/gvm"
+fi
 
 # atuin
-eval "$(atuin init zsh)"
+if command -v atuin &>/dev/null; then
+    eval "$(atuin init zsh)"
+fi
