@@ -105,8 +105,10 @@ alias du='du -h'
 alias df='df -h'
 
 # Use bat instead of cat/less
-alias cat='bat --paging=never'
-alias less='bat'
+alias cat='bat --style=plain --paging=never'
+alias ncat='bat --paging=never'
+alias less='bat --style=plain'
+alias nless='bat'
 
 # Autocomplete for hosts specified in the ~/.ssh/config
 [[ -r ~/.ssh/config ]] && zstyle ':completion:*:hosts' hosts $(grep '^Host ' ~/.ssh/config | awk '{print $2}')
@@ -118,5 +120,5 @@ fi
 
 # atuin
 if command -v atuin &>/dev/null; then
-    eval "$(atuin init zsh)"
+    eval "$(atuin init zsh --disable-up-arrow)"
 fi
