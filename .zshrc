@@ -114,8 +114,8 @@ alias nless='bat'
 [[ -r ~/.ssh/config ]] && zstyle ':completion:*:hosts' hosts $(grep '^Host ' ~/.ssh/config | awk '{print $2}')
 
 # gvm
-if [[ -s "~/.gvm/scripts/gvm" ]]; then
-    source "~/.gvm/scripts/gvm"
+if [[ -s "$HOME/.gvm/scripts/gvm" ]]; then
+    source "$HOME/.gvm/scripts/gvm"
 fi
 
 # atuin
